@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lojinha | Papito's Garage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-gray-100 font-sans">
+
+    <!-- Botão Flutuante para Home -->
+    <a href="index.html" class="fixed bottom-8 right-8 z-50 bg-orange-600 hover:bg-orange-700 text-white p-4 rounded-full shadow-2xl transition-all transform hover:scale-110 flex items-center gap-2 group">
+        <svg xmlns="http://www.w3.org" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-in-out whitespace-nowrap font-bold uppercase text-xs">Voltar para Oficina</span>
+    </a>
+
+    <!-- Header da Loja -->
+    <header class="py-12 bg-black border-b border-orange-600 text-center">
+        <h1 class="text-5xl font-black italic uppercase tracking-tighter">Papito's <span class="text-orange-600">Store</span></h1>
+        <p class="text-zinc-500 mt-2 uppercase tracking-widest text-sm font-semibold">Peças de Performance & Lifestyle VW</p>
+    </header>
+
+    <!-- Filtros Rápidos (Opcional) -->
+    <div class="max-w-6xl mx-auto py-8 px-6 flex flex-wrap gap-4 justify-center">
+        <button class="px-6 py-2 border border-zinc-700 rounded-full hover:border-orange-600 transition text-xs font-bold uppercase">Todos</button>
+        <button class="px-6 py-2 border border-zinc-700 rounded-full hover:border-orange-600 transition text-xs font-bold uppercase text-zinc-500">Freios</button>
+        <button class="px-6 py-2 border border-zinc-700 rounded-full hover:border-orange-600 transition text-xs font-bold uppercase text-zinc-500">Suspensão</button>
+        <button class="px-6 py-2 border border-zinc-700 rounded-full hover:border-orange-600 transition text-xs font-bold uppercase text-zinc-500">Acessórios</button>
+    </div>
+
+    <!-- Grid de Produtos -->
+    <main class="max-w-7xl mx-auto py-10 px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            
+            <!-- Card de Produto Exemplo -->
+            <div class="bg-zinc-900 border border-zinc-800 rounded-xl p-4 hover:border-orange-600 transition-all group">
+                <div class="relative aspect-square bg-zinc-800 rounded-lg mb-4 overflow-hidden">
+                    <img src="./IMG/serviços/suspensao/suspensao1rot.png" alt="Peça" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute top-2 right-2 bg-black/70 px-3 py-1 rounded text-[10px] font-bold uppercase text-orange-500 border border-orange-600">Pronta Entrega</div>
+                </div>
+                <h3 class="text-lg font-bold">Eixo Dianteiro Encurtado</h3>
+                <p class="text-zinc-500 text-xs mb-4">Com torres deslocadas e catracas duplas.</p>
+                <div class="flex justify-between items-center border-t border-zinc-800 pt-4">
+                    <span class="text-2xl font-black italic text-orange-500">R$ 2.450</span>
+                    <a href="https://wa.me o Eixo Encurtado" target="_blank" class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded font-bold text-xs uppercase transition">Comprar</a>
+                </div>
+            </div>
+
+            
+            <!-- Repetir cards para outros produtos... -->
+
+        </div>
+    </main>
+
+    <!-- Footer Simples -->
+    <footer class="py-10 text-center text-zinc-600 border-t border-zinc-900 mt-20">
+        <p class="text-xs uppercase">Papito's Garage &copy; 2024 | Vendas via WhatsApp</p>
+    </footer>
+
+</body>
+</html>
+

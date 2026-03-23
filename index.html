@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papito's Garage | Preparação VW de Performance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-zinc-900 text-gray-100 font-sans">
+
+
+    <!-- Barra de Navegação Master com Logo Hover 2x -->
+    <nav
+        class="flex items-center justify-between p-4 md:px-12 md:py-10 bg-black border-b border-orange-600 sticky top-0 z-50 transition-all duration-500">
+
+        <!-- Container do Logo com Hover de Escala 2x -->
+        <div class="flex items-center">
+            <a href="index.html" class="group block relative">
+                <!-- 
+                h-20 no mobile / h-24 no desktop (base sólida)
+                hover:scale-[2] -> Dobra o tamanho (2x)
+                origin-left -> Garante que ele cresça para frente e não para cima do menu
+            -->
+                <img src="./IMG/logoSFV2.png" alt="Papito's Garage" class="h-20 md:h-24 w-auto object-contain transition-all duration-700 ease-out 
+                       md:group-hover:scale-[2] md:origin-left 
+                        drop-shadow-[0_0_15px_rgba(234,88,12,0.4)] 
+                        group-hover:drop-shadow-[0_0_30px_rgba(234,88,12,0.6)]">
+            </a>
+        </div>
+        <!-- Botão Hambúrguer (Aparece só no mobile) -->
+        <button class="lg:hidden text-orange-600 focus:outline-none"
+            onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+
+        <!-- Menu de Navegação - Com espaçamento lateral extra -->
+        <ul class="hidden lg:flex space-x-12 uppercase text-[11px] font-black tracking-[0.3em] items-center">
+            <li><a href="origem2.html" class="text-zinc-500 hover:text-orange-500 transition duration-300">Origem</a>
+            </li>
+            <li><a href="freio.html" class="text-zinc-400 hover:text-orange-500 transition duration-300">Freio</a></li>
+            <li><a href="suspensao.html"
+                    class="text-zinc-400 hover:text-orange-500 transition duration-300">Suspensão</a></li>
+            <li><a href="direcao.html" class="text-zinc-400 hover:text-orange-500 transition duration-300">Direção</a>
+            </li>
+            <li><a href="eventos.html" class="text-zinc-400 hover:text-orange-500 transition duration-300">Eventos</a>
+            </li>
+            <li><a href="depoimentos.html"
+                    class="text-zinc-400 hover:text-orange-500 transition duration-300">Depoimentos</a></li>
+
+            <!-- Botão Lojinha com Estilo Pista -->
+            <li>
+                <a href="lojinha.html"
+                    class="bg-orange-600 text-white hover:bg-white hover:text-black transition-all duration-500 px-8 py-3 rounded-full font-black italic shadow-[0_10px_20px_rgba(234,88,12,0.3)]">
+                    Lojinha
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Menu Mobile (Escondido por padrão) -->
+    <div id="mobile-menu"
+        class="hidden lg:hidden bg-black border-b border-orange-600 p-6  hidden lg:flex space-y-4 uppercase font-black italic tracking-widest text-sm">
+        <a href="origem2.html" class="text-zinc-400 hover:text-orange-500">Origem</a>
+        <a href="freio.html" class="text-zinc-400 hover:text-orange-500">Freio</a>
+        <a href="suspensao.html" class="text-zinc-400 hover:text-orange-500">Suspensão</a>
+        <a href="direcao.html" class="text-zinc-400 hover:text-orange-500">Direção</a>
+        <a href="lojinha.html" class="text-orange-600">Lojinha</a>
+    </div>
+
+
+
+
+    <!-- Seção: A Lenda Boxer -->
+    <section class="max-w-4xl mx-auto py-12 md:py-24 px-6 reveal">
+        <div class="space-y-12">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-8xl font-black uppercase italic tracking-tighter 
+                text-white leading-none">
+                    Cultura <span class="text-orange-600">Boxer</span>
+                </h1>
+                <p class="text-zinc-500 uppercase tracking-[0.4em] font-bold text-sm mt-4">De Wolfsburg para o asfalto
+                    do mundo</p>
+            </div>
+
+            <div class="text-zinc-400 text-lg leading-relaxed text-justify space-y-6 
+            border-l-2 border-zinc-800 pl-4 md:pl-8 text-sm md:text-lgtext-sm md:text-lg">
+                <p>
+                    A paixão pelos Volkswagens a ar não é apenas sobre carros; é sobre uma engenharia que se tornou um
+                    movimento global. O que começou na Alemanha como uma proposta de mobilidade simples, rompeu
+                    fronteiras e oceanos, disseminando-se por todos os continentes. Do auge da cultura
+                    <strong>California Look</strong> nos EUA aos projetos de performance extrema nas pistas europeias, o
+                    motor Boxer uniu gerações através de sua simplicidade robusta e design icônico.
+                </p>
+                <p>
+                    Essa febre mundial encontrou na **Papito's Garage** o seu ponto de refino máximo. Entendemos que
+                    cada Fusca, Kombi ou Variant carrega essa herança transcontinental. Nossa missão é honrar essa
+                    história global aplicando o que há de mais moderno em preparação e geometria, garantindo que o
+                    legado VW continue acelerando forte, com a estética e a potência que o século XXI exige.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Container do Carrossel -->
+    <section class="w-full bg-black py-10 overflow-hidden relative group">
+        <div class="flex animate-marquee whitespace-nowrap gap-4">
+            <!-- Bloco de Imagens (Repetir para 20 itens) -->
+            <img src="./IMG/fusca1.jpg"
+                class="h-64 w-[80vw] md:w-96 object-cover rounded-lg md:grayscale hover:grayscale-0 transition duration-500 border border-zinc-800"
+                alt="Projeto Papitos">
+            <img src="./IMG/fusca2.jpg" onclick="openModal(this.src)"
+                class="h-64 w-[80vw] md:w-96 object-cover rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition duration-500 border border-zinc-800 shadow-2xl"
+                alt="Projeto Papitos">
+            <img src="./IMG/fusca3.jpg" onclick="openModal(this.src)"
+                class="h-64 w-[80vw] md:w-96 object-cover rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition duration-500 border border-zinc-800 shadow-2xl"
+                alt="Projeto Papitos">
+            <img src="./IMG/fusca4.jpg" onclick="openModal(this.src)"
+                class="h-64 w-[80vw] md:w-96 object-cover rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition duration-500 border border-zinc-800 shadow-2xl"
+                alt="Projeto Papitos">
+            <img src="./IMG/kombi1.jpg" onclick="openModal(this.src)"
+                class="h-64 w-[80vw] md:w-96 object-cover rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition duration-500 border border-zinc-800 shadow-2xl"
+                alt="Projeto Papitos">
+            <img src="./IMG/kombi2.jpg" onclick="openModal(this.src)"
+                class="h-64 w-[80vw] md:w-96 object-cover rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition duration-500 border border-zinc-800 shadow-2xl"
+                alt="Projeto Papitos">
+            <img src="./IMG/kombi3.jpg" onclick="openModal(this.src)"
+                class="h-64 w-[80vw] md:w-96 object-cover rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition duration-500 border border-zinc-800 shadow-2xl"
+                alt="Projeto Papitos">
+            <img src="./IMG/kombi4.jpg" onclick="openModal(this.src)"
+                class="h-64 w-[80vw] md:w-96 object-cover rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition duration-500 border border-zinc-800 shadow-2xl"
+                alt="Projeto Papitos">
+            <img src="./IMG/kombi5.jpg" onclick="openModal(this.src)"
+                class="h-64 w-[80vw] md:w-96 object-cover rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition duration-500 border border-zinc-800 shadow-2xl"
+                alt="Projeto Papitos">
+            <img src="./IMG/kombi6.jpg" onclick="openModal(this.src)"
+                class="h-64 w-[80vw] md:w-96 object-cover rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition duration-500 border border-zinc-800 shadow-2xl"
+                alt="Projeto Papitos">
+            <img src="./IMG/kombi7.jpg" onclick="openModal(this.src)"
+                class="h-64 w-[80vw] md:w-96 object-cover rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition duration-500 border border-zinc-800 shadow-2xl"
+                alt="Projeto Papitos">
+            <img src="./IMG/kombi8.jpg" onclick="openModal(this.src)"
+                class="h-64 w-[80vw] md:w-96 object-cover rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition duration-500 border border-zinc-800 shadow-2xl"
+                alt="Projeto Papitos">
+            <img src="./IMG/vw1.jpg" onclick="openModal(this.src)"
+                class="h-64 w-[80vw] md:w-96 object-cover rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition duration-500 border border-zinc-800 shadow-2xl"
+                alt="Projeto Papitos">
+            <img src="./IMG/vw2.jpg" onclick="openModal(this.src)"
+                class="h-64 w-[80vw] md:w-96 object-cover rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition duration-500 border border-zinc-800 shadow-2xl"
+                alt="Projeto Papitos">
+            <img src="./IMG/vw3.jpg" onclick="openModal(this.src)"
+                class="h-64 w-[80vw] md:w-96 object-cover rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition duration-500 border border-zinc-800 shadow-2xl"
+                alt="Projeto Papitos">
+        </div>
+    </section>
+
+    <!-- Modal de Visualização Master: Centralização Total -->
+    <div id="modal"
+        class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-md flex flex-col items-center justify-center p-4 cursor-zoom-out"
+        onclick="closeModal()">
+
+        <!-- Este container garante que a imagem e a legenda formem um bloco centralizado -->
+        <div class="flex flex-col items-center justify-center w-full h-full max-w-[90vw]">
+
+            <!-- Imagem com proporção inteligente -->
+            <img id="modalImg" src="" class="rounded-2xl border-2 border-orange-600 shadow-[0_0_60px_rgba(234,88,12,0.4)] 
+                    max-w-full max-h-[75vh] object-contain transition-all duration-500 transform scale-100 shadow-2xl">
+
+            <!-- Legenda Centralizada abaixo da foto -->
+            <div class="mt-8 text-center bg-black/50 p-4 rounded-xl backdrop-blur-sm border border-zinc-800/50">
+                <p id="modalCaption"
+                    class="text-orange-500 font-black uppercase italic tracking-tighter text-xl md:text-3xl drop-shadow-lg">
+                </p>
+                <p class="text-zinc-500 text-[10px] uppercase tracking-[0.4em] mt-3 font-bold opacity-70">
+                    Toque em qualquer lugar para voltar
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <style>
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 70s linear infinite;
+        }
+
+        .group:hover .animate-marquee {
+            animation-play-state: paused;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('meuForm');
+
+            form.addEventListener('submit', function (e) {
+                // Impede o formulário de recarregar a página
+                e.preventDefault();
+
+                // Captura os valores
+                const nome = document.getElementById('nome_input').value;
+                const tel = document.getElementById('tel_input').value;
+                const serv = document.getElementById('serv_input').value;
+
+                // Configuração do WhatsApp
+                const numero = "5531997800098"; // <-- COLOQUE SEU NÚMERO AQUI
+
+                // Monta a mensagem formatada
+                const mensagem = `Olha o serviço Papito!%0A%0A` +
+                    `*Novo Orçamento via Site*%0A` +
+                    `*Nome:* ${nome}%0A` +
+                    `*WhatsApp:* ${tel}%0A` +
+                    `*Serviço:* ${serv}`;
+
+                // Cria o link
+                const urlFinal = `https://wa.me/5531997800098?text=${mensagem}`;
+
+                // Redireciona
+                window.location.assign(urlFinal);
+            });
+        });
+    </script>
+
+
+
+    <footer id="contato" class="bg-zinc-950 border-t border-orange-600/20 w-full overflow-hidden">
+        <!-- Container Pai: Divide a tela em duas metades exatas no Desktop -->
+        <div class="flex flex-col lg:flex-row w-full min-h-[700px] items-stretch">
+
+            <!-- COLUNA 1: INSTITUCIONAL (50% da largura) -->
+            <div
+                class="w-full lg:w-1/2 p-12 md:p-20 flex flex-col justify-center space-y-12 bg-black/40 border-b lg:border-b-0 lg:border-r border-zinc-900">
+                <div class="reveal">
+                    <h3 class="text-5xl font-black italic uppercase tracking-tighter text-white leading-none">
+                        Fale com o <br><span class="text-orange-600">Papito</span>
+                    </h3>
+                    <p class="text-zinc-500 text-xl mt-6 leading-relaxed italic max-w-xl">
+                        Agende seu projeto de performance ou tire suas dúvidas diretamente com quem vive a cultura
+                        Boxer.
+                    </p>
+                </div>
+
+                <!-- SUB-GRID INTERNA: ÍCONES (30%) vs MAPA (70%) -->
+                <div class="flex flex-row gap-6 items-stretch h-80 reveal" style="transition-delay: 200ms;">
+
+                    <!-- Links de Redes Sociais Gigantes (30%) -->
+                    <div class="w-[30%] flex flex-col gap-4">
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/5531997800098" target="_blank"
+                            class="group flex-1 bg-zinc-900 rounded-[2.5rem] border border-zinc-800 flex items-center justify-center group-hover:border-green-500 group-hover:bg-green-500/10 transition-all duration-500 shadow-2xl overflow-hidden">
+                            <img src="./IMG/whatsapp.png"
+                                class="w-16 h-16 grayscale group-hover:grayscale-0 transition duration-500 transform group-hover:scale-110"
+                                alt="WhatsApp">
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="https://instagram.com/papittosgarage/" target="_blank"
+                            class="group flex-1 bg-zinc-900 rounded-[2.5rem] border border-zinc-800 flex items-center justify-center group-hover:border-pink-500 group-hover:bg-pink-500/10 transition-all duration-500 shadow-2xl overflow-hidden">
+                            <img src="./IMG/instagram.png"
+                                class="w-16 h-16 grayscale group-hover:grayscale-0 transition duration-500 transform group-hover:scale-110"
+                                alt="Instagram">
+                        </a>
+                    </div>
+
+                    <!-- Google Maps Largo (70%) -->
+                    <div
+                        class="w-[70%] rounded-[3rem] overflow-hidden border border-zinc-800 grayscale hover:grayscale-0 transition-all duration-1000 shadow-[0_0_40px_rgba(0,0,0,0.5)]">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3248.683535080499!2d-44.02844208981858!3d-19.888002236923693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa69406a20758cf%3A0xbf58a40c55a8861d!2sR.%20Paraopeba%2C%2021%20-%20Novo%20Progresso%2C%20Contagem%20-%20MG%2C%2032115-040!5e1!3m2!1spt-BR!2sbr!4v1773806754958!5m2!1spt-BR!2sbr"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUNA DO FORMULÁRIO -->
+            <div class="bg-zinc-900/50 p-10 md:p-12 rounded-[3rem] border border-zinc-800 shadow-2xl">
+                <h3 class="text-4xl font-black uppercase italic mb-10 leading-tight">
+                    Inicie seu <br><span
+                        class="text-orange-600 underline decoration-zinc-800 underline-offset-8">Projeto agora</span>
+                </h3>
+
+                <form id="meuForm" class="space-y-5">
+                    <input type="text" id="nome_input" placeholder="Seu nome completo" required
+                        class="w-full bg-black/40 border border-zinc-800 p-5 rounded-2xl focus:border-orange-600 outline-none text-white transition shadow-inner">
+
+                    <input type="tel" id="tel_input" placeholder="Seu WhatsApp (00) 00000-0000" required
+                        class="w-full bg-black/40 border border-zinc-800 p-5 rounded-2xl focus:border-orange-600 outline-none text-white transition shadow-inner">
+
+                    <select id="serv_input" required
+                        class="w-full bg-black/40 border border-zinc-800 p-5 rounded-2xl focus:border-orange-600 outline-none text-zinc-400 transition">
+                        <option value="">Selecione o Serviço</option>
+                        <option value="Sistemas de Freios">Sistemas de Freios</option>
+                        <option value="Suspensão de Performance">Suspensão de Performance</option>
+                        <option value="Direção sob Controle">Direção sob Controle</option>
+                        <option value="Preparação Boxer">Preparação Boxer</option>
+                    </select>
+
+                    <button type="submit" id="btn_enviar"
+                        class="flex items-center justify-center w-full bg-orange-600 hover:bg-white hover:text-black text-white font-black py-6 rounded-2xl uppercase italic tracking-tighter transition-all duration-500 transform hover:-translate-y-2 shadow-xl shadow-orange-600/20">
+                        Enviar para o WhatsApp
+                    </button>
+                </form>
+            </div>
+
+
+
+        </div>
+
+
+
+        </div>
+    </footer>
+
+
+
+
+
+
+</body>
+
+</html>

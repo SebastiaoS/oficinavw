@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depoimentos | Papito's Garage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com"></script>
+</head>
+<body class="bg-zinc-950 text-gray-100 font-sans">
+
+    <!-- Botão Flutuante (Voltar Home) -->
+    <a href="index.html" class="fixed bottom-8 left-8 z-50 bg-orange-600 hover:bg-orange-700 text-white p-4 rounded-full shadow-2xl transition-all flex items-center gap-2 group">
+        <svg xmlns="http://www.w3.org" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-in-out whitespace-nowrap font-bold uppercase text-[10px]">Home</span>
+    </a>
+
+   
+
+     <!-- Header Especializado - Logo e Copy de Direção -->
+    <header
+        class="relative h-[40vh] flex items-center justify-start overflow-hidden border-b border-orange-600 bg-zinc-950 px-8 md:px-20">
+        <div class="absolute inset-0 bg-black/75 z-10"></div>
+
+        <div class="relative z-20 flex flex-col md:flex-row items-center gap-10 w-full max-w-7xl">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <img src="./IMG/logoSFV2.png" alt="Logo Papito's Garage"
+                    class="h-32 md:h-48 w-auto object-contain drop-shadow-[0_0_25px_rgba(234,88,12,0.5)]">
+            </div>
+
+            <!-- Copy Centralizada Baseada no Index -->
+            <div class="flex-1 flex flex-col items-center justify-center text-center px-4">
+                <h1 class="text-4xl md:text-7xl font-black uppercase italic tracking-tighter 
+                leading-none text-white">
+                    satisfação <span class="text-orange-600">garantida</span>
+                </h1>
+                <p
+                    class="text-zinc-400 mt-4 uppercase tracking-widest text-[10px] md:text-sm font-bold border-l-4 border-orange-600 pl-4">
+                    o prazer de ser bem atendido.
+                </p>
+            </div>
+        </div>
+    </header>
+
+   <!-- Mural de Depoimentos com Fotos -->
+<main class="max-w-7xl mx-auto py-20 px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        
+        <!-- Depoimento 1 - Foco em Performance -->
+        <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl flex flex-col md:flex-row reveal">
+            <div class="md:w-1/2 h-64 md:h-auto overflow-hidden">
+                <img src="./IMG/serviços/depoimentos/fusca.png" 
+                     class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Fusca Turbo">
+            </div>
+            <div class="md:w-1/2 p-8 flex flex-col justify-center">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-orange-500">★★★★★</span>
+                </div>
+                <p class="text-zinc-300 italic mb-6 leading-relaxed">
+                    "O projeto do meu motor 1900cc superou as expectativas. O acerto de ignição e combustível ficou perfeito. O Papito entrega o que promete."
+                </p>
+                <div>
+                    <h4 class="font-bold text-white uppercase italic">Ricardo Silva</h4>
+                    <p class="text-zinc-500 text-[10px] font-black uppercase tracking-widest">Fusca 1900cc Turbo</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Depoimento 2 - Foco em Estética/Chão -->
+        <div class="bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl flex flex-col md:flex-row-reverse reveal">
+            <div class="md:w-1/2 h-64 md:h-auto overflow-hidden">
+                <img src="./IMG/serviços/depoimentos/kombi.png" 
+                     class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Kombi Rebaixada">
+            </div>
+            <div class="md:w-1/2 p-8 flex flex-col justify-center">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-orange-500">★★★★★</span>
+                </div>
+                <p class="text-zinc-300 italic mb-6 leading-relaxed">
+                    "Fiz o quadro encurtado e as mangas deslocadas na minha Corujinha. O conforto surpreende, mesmo andando bem baixo. Trabalho de artista!"
+                </p>
+                <div>
+                    <h4 class="font-bold text-white uppercase italic">Marcos "Baixinho"</h4>
+                    <p class="text-zinc-500 text-[10px] font-black uppercase tracking-widest">Kombi Corujinha 1968</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Adicione mais blocos alternando entre as classes flex-row e flex-row-reverse para um design dinâmico -->
+
+    </div>
+</main>
+
+
+            <!-- Adicione mais cards aqui para preencher o mural -->
+
+        </div>
+    </main>
+
+    <!-- Footer Simples -->
+    <footer class="py-12 bg-black text-center border-t border-zinc-900">
+        <p class="text-zinc-600 text-[10px] uppercase tracking-widest">Papito's Garage - A voz do cliente é a nossa lei.</p>
+    </footer>
+
+    <!-- Script de Animação -->
+    <script>
+        window.sr = ScrollReveal({ reset: false });
+        sr.reveal('.reveal-top', { duration: 1500, origin: 'top', distance: '50px' });
+        sr.reveal('.reveal', { duration: 1000, origin: 'bottom', distance: '30px', interval: 200 });
+    </script>
+
+</body>
+</html>

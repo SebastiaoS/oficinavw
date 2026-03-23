@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos & Encontros | Papito's Garage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Biblioteca de Animação -->
+    <script src="https://unpkg.com"></script>
+</head>
+
+<body class="bg-zinc-950 text-gray-100 font-sans">
+
+    <!-- Botão Flutuante -->
+    <a href="index.html"
+        class="fixed bottom-8 left-8 z-50 bg-orange-600 hover:bg-orange-700 text-white p-4 rounded-full shadow-2xl transition-all flex items-center gap-2 group">
+        <svg xmlns="http://www.w3.org" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span
+            class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-in-out whitespace-nowrap font-bold uppercase text-[10px]">Voltar</span>
+    </a>
+
+
+    <!-- Header Especializado - Logo e Copy de Direção -->
+    <header
+        class="relative h-[40vh] flex items-center justify-start overflow-hidden border-b border-orange-600 bg-zinc-950 px-8 md:px-20">
+        <div class="absolute inset-0 bg-black/75 z-10"></div>
+
+        <div class="relative z-20 flex flex-col md:flex-row items-center gap-10 w-full max-w-7xl">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <img src="./IMG/logoSFV2.png" alt="Logo Papito's Garage"
+                    class="h-32 md:h-48 w-auto object-contain drop-shadow-[0_0_25px_rgba(234,88,12,0.5)]">
+            </div>
+
+            <!-- Copy Centralizada Baseada no Index -->
+            <div class="flex-1 flex flex-col items-center justify-center text-center px-4">
+                <h1 class="text-4xl md:text-7xl font-black uppercase italic tracking-tighter leading-none text-white">
+                    na <span class="text-orange-600">pista</span>
+                </h1>
+                <p
+                    class="text-zinc-400 mt-4 uppercase tracking-widest text-[10px] md:text-sm font-bold border-l-4 border-orange-600 pl-4">
+                    Ronde a teoria encontra a prática.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção de Galeria de Eventos -->
+    <section class="max-w-7xl mx-auto py-16 px-4">
+        <h2 class="text-4xl font-black uppercase italic mb-12 border-l-8 border-orange-600 pl-6">Galeria de Encontros
+        </h2>
+
+        <!-- Grid: 2 colunas no mobile, 3 no tablet, 5 no desktop -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+
+            <!-- Bloco de Imagem (Repita este bloco 20 vezes) -->
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e1.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e2.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e3.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e4.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e5.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e6.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e7.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e8.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e9.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e10.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e11.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e12.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e13.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e14.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e15.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e21.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+            <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700"
+                onclick="openGalleryModal(this)">
+                <img src="./IMG/serviços/eventos/e17.png"
+                    class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"
+                    alt="Encontro VW">
+                <div
+                    class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+                </div>
+            </div>
+             <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700" 
+             onclick="openGalleryModal(this)">
+            <img src="./IMG/serviços/eventos/e18.png" 
+                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" 
+                 alt="Encontro VW">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+            </div>
+        </div>
+         <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700" 
+             onclick="openGalleryModal(this)">
+            <img src="./IMG/serviços/eventos/e19.png" 
+                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" 
+                 alt="Encontro VW">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+            </div>
+        </div>
+         <div class="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-zinc-800 border border-zinc-700" 
+             onclick="openGalleryModal(this)">
+            <img src="./IMG/serviços/eventos/e20.png" 
+                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" 
+                 alt="Encontro VW">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="text-white font-black text-xs tracking-widest uppercase">Ampliar</span>
+            </div>
+        </div>
+
+
+            <!-- ... repita os itens até completar 20 ... -->
+
+        </div>
+    </section>
+
+    <!-- Modal da Galeria (Oculto por padrão) -->
+    <div id="galleryModal"
+        class="fixed inset-0 z-[100] hidden bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
+        onclick="closeGalleryModal()">
+
+        <span
+            class="absolute top-10 right-10 text-white text-5xl cursor-pointer hover:text-orange-600 transition">&times;</span>
+
+        <!-- Imagem ampliada: Ocupa 50% da largura da tela no desktop -->
+        <img id="modalImage" src=""
+            class="w-full md:w-[50vw] h-auto max-h-[85vh] object-contain border-4 border-orange-600 shadow-[0_0_50px_rgba(234,88,12,0.3)] rounded-xl"
+            onclick="event.stopPropagation()">
+    </div>
+
+    </main>
+
+    <!-- Footer Simples -->
+    <footer class="py-12 bg-black text-center border-t border-zinc-900">
+        <p class="text-zinc-600 text-[10px] uppercase tracking-widest">Papito's Garage - Vivendo a Cultura Boxer</p>
+    </footer>
+
+    <!-- SCRIPT DE ANIMAÇÃO DO MASTER -->
+    <script>
+        window.sr = ScrollReveal({ reset: false });
+
+        sr.reveal('.reveal-top', {
+            duration: 2000,
+            origin: 'top',
+            distance: '50px',
+            delay: 200
+        });
+
+        sr.reveal('.reveal', {
+            duration: 1000,
+            origin: 'bottom',
+            distance: '30px',
+            interval: 200 // Faz um efeito cascata nas fotos
+        });
+    </script>
+    <script>
+    function openGalleryModal(element) {
+        const modal = document.getElementById('galleryModal');
+        const modalImg = document.getElementById('modalImage');
+        const clickedImgSrc = element.querySelector('img').src;
+
+        modalImg.src = clickedImgSrc;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Trava o scroll da página
+    }
+
+    function closeGalleryModal() {
+        const modal = document.getElementById('galleryModal');
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto'; // Destrava o scroll
+    }
+
+    // Fechar com a tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeGalleryModal();
+    });
+</script>
+
+</body>
+
+</html>
