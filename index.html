@@ -6,46 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Papito's Garage | Preparação VW de Performance</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* CSS MASTER: Resolve o Carrossel */
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
- .animate-marquee {
-        display: flex !important;
-        width: max-content !important;
-        /* VELOCIDADE PARA CELULAR (Mais lento para não cansar o olho) */
-        animation: marquee 80s linear infinite !important; 
+ <style>
+    /* 1. Definição da animação (Motor) */
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
     }
 
-    /* VELOCIDADE PARA PC (Telas maiores que 1024px) */
-    @media (min-width: 1024px) {
-        .animate-marquee {
-            animation: marquee 60s linear infinite !important;
-        }
-        /* Faz o carrossel parar no mouse */
-        .animate-marquee:hover {
-            animation-play-state: paused !important;
-        }
+    /* 2. Configuração do Container (O Trilho) */
+    .animate-marquee {
+        display: flex !important;
+        width: max-content !important;
+        /* Velocidade padrão (O JS ou a Media Query ajustam depois) */
+      
+    }
+        /* O motor agora só liga se tiver essa classe */
+    .rodar {
+        animation: marquee 40s linear infinite !important;
+    }
 
-        .animate-marquee img {
-            transition: transform 0.3s ease, border-color 0.3s ease !important;
-        }
+    .active-focus {
+        transform: scale(1.15) !important;
+        border-color: #ea580c !important;
+        filter: grayscale(0) !important;
+        z-index: 50;
+    }
 
-        /* Efeito de Zoom nas fotos */
-        .animate-marquee img:hover {
-            transform: scale(1.1) !important;
-            border-color: #ea580c !important;
-            z-index: 10;
+    /* 3. Estilo das Imagens */
+    .animate-marquee img {
+        transition: transform 0.3s ease, border-color 0.3s ease, filter 0.3s ease !important;
+        cursor: pointer;
+    }
+
+    /* 4. Classe de Destaque (Usada pelo Mouse no PC e pelo Toque no Mobile via JS) */
+    .active-focus {
+        transform: scale(1.15) !important;
+        border-color: #ea580c !important;
+        filter: grayscale(0) !important;
+        z-index: 50;
+    }
+
+    /* 5. Ajuste de Velocidade para Mobile via CSS (Garante que rode se o JS demorar) */
+    @media (max-width: 1024px) {
+      .rodar {
+            animation-duration: 80s !important;
         }
-    </style>
+    }
+</style>
+
+
 </head>
 
 <body class="bg-zinc-900 text-gray-100 font-sans">
@@ -97,8 +106,9 @@
         </ul>
     </nav>
 
-     <!-- MENU MOBILE -->
-    <div id="mobile-menu" class="hidden bg-black border-b border-orange-600 p-6 flex-col space-y-4 uppercase font-black italic tracking-widest text-sm lg:hidden">
+    <!-- MENU MOBILE -->
+    <div id="mobile-menu"
+        class="hidden bg-black border-b border-orange-600 p-6 flex-col space-y-4 uppercase font-black italic tracking-widest text-sm lg:hidden">
         <a href="origem2.html" class="text-zinc-400">Origem</a>
         <a href="freio.html" class="text-zinc-400">Freio</a>
         <a href="suspensao.html" class="text-zinc-400">Suspensão</a>
@@ -194,7 +204,7 @@
                 class="h-64 w-[80vw] md:w-96 object-cover rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition duration-500 border border-zinc-800 shadow-2xl"
                 alt="Projeto Papitos">
 
-                 <!-- Bloco de Imagens 2 -->
+            <!-- Bloco de Imagens 2 -->
             <img src="./img/fusca1.jpg" onclick="openModal(this.src)"
                 class="h-64 w-[80vw] md:w-96 object-cover rounded-lg md:grayscale hover:grayscale-0 transition duration-500 border border-zinc-800"
                 alt="Projeto Papitos">
@@ -273,37 +283,7 @@
 
 
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.getElementById('meuForm');
 
-            form.addEventListener('submit', function (e) {
-                // Impede o formulário de recarregar a página
-                e.preventDefault();
-
-                // Captura os valores
-                const nome = document.getElementById('nome_input').value;
-                const tel = document.getElementById('tel_input').value;
-                const serv = document.getElementById('serv_input').value;
-
-                // Configuração do WhatsApp
-                const numero = "5531997800098"; // <-- COLOQUE SEU NÚMERO AQUI
-
-                // Monta a mensagem formatada
-                const mensagem = `Olha o serviço Papito!%0A%0A` +
-                    `*Novo Orçamento via Site*%0A` +
-                    `*Nome:* ${nome}%0A` +
-                    `*WhatsApp:* ${tel}%0A` +
-                    `*Serviço:* ${serv}`;
-
-                // Cria o link
-                const urlFinal = `https://wa.me/5531997800098?text=${mensagem}`;
-
-                // Redireciona
-                window.location.assign(urlFinal);
-            });
-        });
-    </script>
 
 
 
@@ -400,7 +380,55 @@
 
 
 
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const track = document.querySelector('.animate-marquee');
+    const images = document.querySelectorAll('.animate-marquee img');
 
+    if (track) {
+        // LIGA O MOTOR AO CARREGAR
+        track.classList.add('rodar');
+
+        // NO PC: MOUSE ENTROU = DESLIGA MOTOR
+        track.addEventListener('mouseenter', () => {
+            track.classList.remove('rodar');
+        });
+
+        // NO PC: MOUSE SAIU = LIGA MOTOR
+        track.addEventListener('mouseleave', () => {
+            track.classList.add('rodar');
+            images.forEach(i => i.classList.remove('active-focus'));
+        });
+
+        // NO MOBILE: TOQUE = DESLIGA MOTOR E DESTACA
+        images.forEach(img => {
+            img.addEventListener('touchstart', (e) => {
+                images.forEach(i => i.classList.remove('active-focus'));
+                img.classList.add('active-focus');
+                track.classList.remove('rodar');
+            }, {passive: true});
+        });
+
+        // VOLTA A RODAR SE TOCAR FORA
+        document.addEventListener('touchstart', (e) => {
+            if (!e.target.closest('.animate-marquee img')) {
+                images.forEach(i => i.classList.remove('active-focus'));
+                track.classList.add('rodar');
+            }
+        }, {passive: true});
+    }
+});
+
+
+    // Função do Menu Mobile (Não esqueça dela!)
+    function toggleMenu() {
+        const menu = document.getElementById('mobile-menu');
+        if (menu) {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+    }
+</script>
 
 </body>
 
