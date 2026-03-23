@@ -186,27 +186,35 @@
 
 
 
-    <style>
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
+  <style>
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    
+    .animate-marquee {
+        display: flex;
+        width: max-content;
+        /* Diminuir esse número (8s) deixa mais rápido */
+        animation: marquee 8s linear infinite; 
+        gap: 1rem;
+    }
 
-            100% {
-                transform: translateX(-50%);
-            }
-        }
+    /* Efeito de Pausar e dar Zoom ao passar o mouse */
+    .animate-marquee:hover { 
+        animation-play-state: paused; 
+    }
 
-        .animate-marquee {
-            display: flex;
-            animation: marquee 15s linear infinite;
-        }
+    .animate-marquee img {
+        transition: transform 0.4s ease-in-out;
+    }
 
-        /* Isso garante que no mobile o container não quebre */
-        .whitespace-nowrap {
-            white-space: nowrap;
-        }
-    </style>
+    .animate-marquee img:hover {
+        transform: scale(1.1); /* Aumenta a foto em 10% */
+        z-index: 10;
+        border-color: #ea580c; /* Borda laranja no hover */
+    }
+</style>
 
 
 
