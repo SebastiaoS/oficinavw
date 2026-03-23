@@ -18,13 +18,18 @@
             }
         }
 
-       .animate-marquee {
-    display: flex !important;
-    width: max-content !important;
-    /* 20s é o tempo de 'cruzeiro' ideal */
-    animation: marquee 45s linear infinite !important; 
-}
+ .animate-marquee {
+        display: flex !important;
+        width: max-content !important;
+        /* VELOCIDADE PARA CELULAR (Mais lento para não cansar o olho) */
+        animation: marquee 60s linear infinite !important; 
+    }
 
+    /* VELOCIDADE PARA PC (Telas maiores que 1024px) */
+    @media (min-width: 1024px) {
+        .animate-marquee {
+            animation: marquee 40s linear infinite !important;
+        }
         /* Faz o carrossel parar no mouse */
         .animate-marquee:hover {
             animation-play-state: paused !important;
