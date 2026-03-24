@@ -56,14 +56,14 @@
             }
         }
 
-        @media (max-width: 1023px) {
+       @media (max-width: 1023px) {
+    /* Empurra TUDO que vem depois da Nav */
+    nav + section, nav + main {
+        margin-top: 80px !important; 
+        padding-top: 20px !important;
+    }
+}
 
-            /* Empurra o conteúdo para baixo para não bater no menu de 2 linhas */
-            main,
-            section:first-of-type {
-                margin-top: 60px !important;
-            }
-        }
     </style>
 
 
