@@ -6,53 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Papito's Garage | Preparação VW de Performance</title>
     <script src="https://cdn.tailwindcss.com"></script>
- <style>
-    /* 1. Definição da animação (Motor) */
-    @keyframes marquee {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-    }
 
-    /* 2. Configuração do Container (O Trilho) */
-    .animate-marquee {
-        display: flex !important;
-        width: max-content !important;
-        /* Velocidade padrão (O JS ou a Media Query ajustam depois) */
-      
-    }
-        /* O motor agora só liga se tiver essa classe */
-    .rodar {
-        animation: marquee 40s linear infinite !important;
-    }
 
-    .active-focus {
-        transform: scale(1.15) !important;
-        border-color: #ea580c !important;
-        filter: grayscale(0) !important;
-        z-index: 50;
-    }
+    <style>
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
 
-    /* 3. Estilo das Imagens */
-    .animate-marquee img {
-        transition: transform 0.3s ease, border-color 0.3s ease, filter 0.3s ease !important;
-        cursor: pointer;
-    }
-
-    /* 4. Classe de Destaque (Usada pelo Mouse no PC e pelo Toque no Mobile via JS) */
-    .active-focus {
-        transform: scale(1.15) !important;
-        border-color: #ea580c !important;
-        filter: grayscale(0) !important;
-        z-index: 50;
-    }
-
-    /* 5. Ajuste de Velocidade para Mobile via CSS (Garante que rode se o JS demorar) */
-    @media (max-width: 1024px) {
-      .rodar {
-            animation-duration: 80s !important;
+            100% {
+                transform: translateX(-50%);
+            }
         }
-    }
-</style>
+
+        .animate-marquee {
+            display: flex !important;
+            width: max-content !important;
+            animation: marquee 60s linear infinite !important;
+        }
+
+        /* Classe Única de Pausa (JS vai injetar) */
+        .paused {
+            animation-play-state: paused !important;
+        }
+
+        /* Classe Única de Destaque (JS vai injetar) */
+        .active-focus {
+            transform: scale(1.2) !important;
+            border: 4px solid #ea580c !important;
+            filter: grayscale(0) !important;
+            z-index: 100 !important;
+        }
+
+        .animate-marquee img {
+            transition: transform 0.3s ease, border-color 0.3s ease, filter 0.3s ease !important;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        /* No PC, o hover continua funcionando automático para agilidade */
+        @media (min-width: 1024px) {
+            .animate-marquee:hover {
+                animation-play-state: paused !important;
+            }
+
+            .animate-marquee img:hover {
+                transform: scale(1.1);
+                filter: grayscale(0);
+            }
+        }
+    </style>
+
 
 
 </head>
@@ -361,10 +365,11 @@
                         <option value="Preparação Boxer">Preparação Boxer</option>
                     </select>
 
-                    <button type="submit" id="btn_enviar"
+                    <button type="button" onclick="enviarWhats()" id="btn_enviar"
                         class="flex items-center justify-center w-full bg-orange-600 hover:bg-white hover:text-black text-white font-black py-6 rounded-2xl uppercase italic tracking-tighter transition-all duration-500 transform hover:-translate-y-2 shadow-xl shadow-orange-600/20">
                         Enviar para o WhatsApp
                     </button>
+
                 </form>
             </div>
 
@@ -378,57 +383,82 @@
     </footer>
 
 
+    <script>
+        // --- 1. FUNÇÕES GLOBAIS (O HTML as enxerga aqui) ---
 
-
-   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const track = document.querySelector('.animate-marquee');
-    const images = document.querySelectorAll('.animate-marquee img');
-
-    if (track) {
-        // LIGA O MOTOR AO CARREGAR
-        track.classList.add('rodar');
-
-        // NO PC: MOUSE ENTROU = DESLIGA MOTOR
-        track.addEventListener('mouseenter', () => {
-            track.classList.remove('rodar');
-        });
-
-        // NO PC: MOUSE SAIU = LIGA MOTOR
-        track.addEventListener('mouseleave', () => {
-            track.classList.add('rodar');
-            images.forEach(i => i.classList.remove('active-focus'));
-        });
-
-        // NO MOBILE: TOQUE = DESLIGA MOTOR E DESTACA
-        images.forEach(img => {
-            img.addEventListener('touchstart', (e) => {
-                images.forEach(i => i.classList.remove('active-focus'));
-                img.classList.add('active-focus');
-                track.classList.remove('rodar');
-            }, {passive: true});
-        });
-
-        // VOLTA A RODAR SE TOCAR FORA
-        document.addEventListener('touchstart', (e) => {
-            if (!e.target.closest('.animate-marquee img')) {
-                images.forEach(i => i.classList.remove('active-focus'));
-                track.classList.add('rodar');
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+                menu.classList.toggle('flex');
             }
-        }, {passive: true});
-    }
-});
-
-
-    // Função do Menu Mobile (Não esqueça dela!)
-    function toggleMenu() {
-        const menu = document.getElementById('mobile-menu');
-        if (menu) {
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('flex');
         }
-    }
-</script>
+
+        function enviarWhats() {
+            // Captura os valores digitados
+            const nome = document.getElementById('nome_input').value;
+            const tel = document.getElementById('tel_input').value;
+            const serv = document.getElementById('serv_input').value;
+
+            // Validação simples
+            if (!nome || !tel || !serv) {
+                alert("Papito, preencha todos os campos primeiro!");
+                return;
+            }
+
+            const numeroDestino = "5531997800098";
+
+            // encodeURIComponent limpa a mensagem para o link não quebrar
+            const mensagem = encodeURIComponent(
+                ` *OLHA A GRANA CHEGANDO!!* \n\n` +
+                `*CLIENTE:* ${nome}\n` +
+                `*WHATS:* ${tel}\n` +
+                `*TRAMPO:* ${serv}\n\n` +
+                `_Enviado via PAPITTOS.COM.BR_`
+            );
+
+            // A URL CORRETA (PRECISA DA BARRA / E DO $ ANTES DA CHAVE)
+            const urlFinal = `https://wa.me/5531997800098/?text=${mensagem}`;
+
+            // Abre o WhatsApp em nova aba
+            window.open(urlFinal, '_blank');
+        }
+
+        // --- 2. LÓGICA DO CARROSSEL (Fica dentro do DOMContentLoaded) ---
+        document.addEventListener('DOMContentLoaded', function () {
+            const track = document.querySelector('.animate-marquee');
+            const images = document.querySelectorAll('.animate-marquee img');
+
+            if (track) {
+                images.forEach(img => {
+                    img.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        if (img.classList.contains('active-focus')) {
+                            img.classList.remove('active-focus');
+                            track.classList.remove('paused');
+                        } else {
+                            images.forEach(i => i.classList.remove('active-focus'));
+                            img.classList.add('active-focus');
+                            track.classList.add('paused');
+                        }
+                    });
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.animate-marquee img')) {
+                        images.forEach(i => i.classList.remove('active-focus'));
+                        track.classList.remove('paused');
+                    }
+                });
+            }
+        });
+    </script>
+
+
+
+
+
+
 
 </body>
 
