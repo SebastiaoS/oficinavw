@@ -55,6 +55,15 @@
                 filter: grayscale(0);
             }
         }
+
+        @media (max-width: 1023px) {
+
+            /* Empurra o conteúdo para baixo para não bater no menu de 2 linhas */
+            main,
+            section:first-of-type {
+                margin-top: 60px !important;
+            }
+        }
     </style>
 
 
@@ -63,32 +72,36 @@
 
 <body class="bg-zinc-900 text-gray-100 font-sans">
 
-<nav class="flex flex-col md:flex-row items-center justify-between p-4 md:px-12 md:py-8 bg-black border-b border-orange-600 sticky top-0 z-50">
-    
-    <!-- Logo (Sempre no topo no mobile) -->
-    <div class="mb-6 md:mb-0">
-        <a href="index.html" class="group block">
-            <img src="./img/logoSFV2.png" alt="Logo" class="h-16 md:h-24 w-auto transition-all duration-700 md:group-hover:scale-[1.5] md:origin-left">
-        </a>
-    </div>
+    <nav
+        class="flex flex-col md:flex-row items-center justify-between p-4 md:px-12 md:py-8 bg-black border-b border-orange-600 sticky top-0 z-50">
 
-    <!-- Menu Exposto (Grid de 2 colunas no mobile / Linha no PC) -->
-    <ul class="grid grid-cols-3 gap-4 md:flex md:space-x-8 uppercase text-[10px] md:text-[11px] font-black tracking-widest items-center text-center">
-        <li><a href="origem2.html" class="text-zinc-500 hover:text-orange-500">Origem</a></li>
-        <li><a href="freio.html" class="text-zinc-400 hover:text-orange-500">Freio</a></li>
-        <li><a href="suspensao.html" class="text-zinc-400 hover:text-orange-500">Suspensão</a></li>
-        <li><a href="direcao.html" class="text-zinc-400 hover:text-orange-500">Direção</a></li>
-        <li><a href="eventos.html" class="text-zinc-400 hover:text-orange-500">Eventos</a></li>
-        <li><a href="depoimentos.html" class="text-zinc-400 hover:text-orange-500">Depoimentos</a></li>
-    </ul>
+        <!-- Logo (Sempre no topo no mobile) -->
+        <div class="mb-6 md:mb-0">
+            <a href="index.html" class="group block">
+                <img src="./img/logoSFV2.png" alt="Logo"
+                    class="h-16 md:h-24 w-auto transition-all duration-700 md:group-hover:scale-[1.5] md:origin-left">
+            </a>
+        </div>
 
-    <!-- Botão Lojinha (Separado para destaque) -->
-    <div class="mt-6 md:mt-0">
-        <a href="lojinha.html" class="bg-orange-600 text-white px-6 py-2 md:px-8 md:py-3 rounded-full font-black italic text-[10px] md:text-[11px] shadow-lg hover:bg-white hover:text-black transition-all">
-            Lojinha
-        </a>
-    </div>
-</nav>
+        <!-- Menu Exposto (Grid de 2 colunas no mobile / Linha no PC) -->
+        <ul
+            class="grid grid-cols-3 gap-4 md:flex md:space-x-8 uppercase text-[10px] md:text-[11px] font-black tracking-widest items-center text-center">
+            <li><a href="origem2.html" class="text-zinc-500 hover:text-orange-500">Origem</a></li>
+            <li><a href="freio.html" class="text-zinc-400 hover:text-orange-500">Freio</a></li>
+            <li><a href="suspensao.html" class="text-zinc-400 hover:text-orange-500">Suspensão</a></li>
+            <li><a href="direcao.html" class="text-zinc-400 hover:text-orange-500">Direção</a></li>
+            <li><a href="eventos.html" class="text-zinc-400 hover:text-orange-500">Eventos</a></li>
+            <li><a href="depoimentos.html" class="text-zinc-400 hover:text-orange-500">Depoimentos</a></li>
+        </ul>
+
+        <!-- Botão Lojinha (Separado para destaque) -->
+        <div class="mt-6 md:mt-0">
+            <a href="lojinha.html"
+                class="bg-orange-600 text-white px-6 py-2 md:px-8 md:py-3 rounded-full font-black italic text-[10px] md:text-[11px] shadow-lg hover:bg-white hover:text-black transition-all">
+                Lojinha
+            </a>
+        </div>
+    </nav>
 
 
     <!-- MENU MOBILE -->
